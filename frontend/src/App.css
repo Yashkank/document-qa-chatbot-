@@ -1,0 +1,162 @@
+body {
+  background-color: #f4f6f8;
+  transition: background 0.3s;
+  margin: 0;
+  padding: 0;
+}
+
+body.dark {
+  background-color: #121212;
+}
+
+/* 🔹 Floating, draggable, resizable chatbot */
+.chat-container {
+  position: fixed;
+  width: 420px;
+  height: 520px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  padding: 14px;
+  font-family: Arial, sans-serif;
+  resize: both;              /* ✅ resize */
+  overflow: hidden;
+  z-index: 9999;
+}
+
+body.dark .chat-container {
+  background: #1e1e1e;
+  color: white;
+}
+
+/* Header (drag area) */
+.chat-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: move;              /* ✅ drag cursor */
+}
+
+/* Dark toggle */
+.dark-toggle {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Chat box */
+.chat-box {
+  height: calc(100% - 110px);
+  overflow-y: auto;
+  border-radius: 8px;
+  padding: 10px;
+  background: #fafafa;
+  margin-bottom: 8px;
+}
+
+body.dark .chat-box {
+  background: #2a2a2a;
+}
+
+/* Messages */
+.message {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.user {
+  background-color: #007bff;
+  color: white;
+  margin-left: auto;
+  margin-right: 6px;
+}
+
+.bot {
+  background-color: #e5e5ea;
+  color: black;
+  margin-right: auto;
+  margin-left: 6px;
+}
+
+body.dark .bot {
+  background-color: #3a3a3a;
+  color: white;
+}
+
+/* Timestamp */
+.timestamp {
+  font-size: 11px;
+  opacity: 0.6;
+  text-align: right;
+  margin-top: 4px;
+}
+
+/* Input */
+.input-box {
+  display: flex;
+  gap: 6px;
+}
+
+input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+body.dark input {
+  background: #333;
+  color: white;
+  border: 1px solid #555;
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+}
+
+/* Loading */
+.loading {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* 📱 Mobile responsiveness */
+@media (max-width: 600px) {
+  .chat-container {
+    width: 95vw;
+    height: 85vh;
+    left: 2.5vw !important;
+    top: 5vh !important;
+  }
+}
+
+/* 🌙 Dark mode scrollbar */
+body.dark .chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+body.dark .chat-box::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 6px;
+}
+
+body.dark .chat-box::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+
