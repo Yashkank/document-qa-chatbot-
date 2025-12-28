@@ -14,12 +14,12 @@ function App() {
 
   const chatEndRef = useRef(null);
 
-  // Auto-scroll
+  // 🔹 Auto-scroll
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
-  // Dark mode
+  // 🔹 Dark mode toggle
   useEffect(() => {
     document.body.className = darkMode ? "dark" : "";
   }, [darkMode]);
@@ -55,6 +55,7 @@ function App() {
     };
   }
 
+  // 🔹 SEND QUESTION
   async function handleSend() {
     if (!question.trim()) return;
 
@@ -67,11 +68,14 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/ask", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question }),
-      });
+      const response = await fetch(
+        "https://document-qa-chatbot.onrender.com/ask",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question }),
+        }
+      );
 
       const data = await response.json();
       typeBotMessage(data.answer);
@@ -80,7 +84,7 @@ function App() {
     }
   }
 
-  // Typing animation
+  // 🔹 Typing animation for bot
   function typeBotMessage(text) {
     let index = 0;
 
@@ -120,7 +124,7 @@ function App() {
       className="chat-container"
       style={{ left: position.x, top: position.y }}
     >
-      {/* HEADER (drag handle) */}
+      {/* 🔹 Header (Drag Handle) */}
       <div className="chat-title" onMouseDown={startDrag}>
         📄 Document QA Chatbot
         <button className="dark-toggle" onClick={() => setDarkMode(!darkMode)}>
@@ -128,6 +132,7 @@ function App() {
         </button>
       </div>
 
+      {/* 🔹 Chat Messages */}
       <div className="chat-box">
         {messages.map((msg, index) => (
           <div
@@ -143,6 +148,7 @@ function App() {
         <div ref={chatEndRef} />
       </div>
 
+      {/* 🔹 Input */}
       <div className="input-box">
         <input
           value={question}
