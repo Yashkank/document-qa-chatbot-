@@ -55,7 +55,7 @@ function App() {
     };
   }
 
-  // 🔹 SEND QUESTION
+  // 🔹 Send question
   async function handleSend() {
     if (!question.trim()) return;
 
@@ -132,8 +132,28 @@ function App() {
         </button>
       </div>
 
-      {/* 🔹 Chat Messages */}
+      {/* 🔹 Chat Box */}
       <div className="chat-box">
+
+        {/* 👋 Welcome panel (only when no messages) */}
+        {messages.length === 0 && (
+          <div className="welcome-box">
+            <h3>👋 Welcome!</h3>
+            <p>
+                This chatbot answers questions based on internal company documents such as HR policies and rules.
+
+            </p>
+
+            <p><b>💡 Try asking:</b></p>
+            <ul>
+              <li>How many paid leaves are provided?</li>
+              <li>What is the notice period?</li>
+              <li>Is work from home allowed?</li>
+            </ul>
+          </div>
+        )}
+
+        {/* 💬 Messages */}
         {messages.map((msg, index) => (
           <div
             key={index}

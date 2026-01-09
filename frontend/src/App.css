@@ -19,7 +19,7 @@ body.dark {
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
   padding: 14px;
   font-family: Arial, sans-serif;
-  resize: both;              /* ✅ resize */
+  resize: both;
   overflow: hidden;
   z-index: 9999;
 }
@@ -36,7 +36,7 @@ body.dark .chat-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: move;              /* ✅ drag cursor */
+  cursor: move;
 }
 
 /* Dark toggle */
@@ -59,6 +59,36 @@ body.dark .chat-container {
 
 body.dark .chat-box {
   background: #2a2a2a;
+}
+
+/* 🌟 Welcome panel */
+.welcome-box {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.welcome-box h3 {
+  margin-top: 0;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.welcome-box ul {
+  padding-left: 18px;
+  margin: 6px 0 0;
+}
+
+.welcome-box li {
+  margin-bottom: 4px;
+}
+
+body.dark .welcome-box {
+  background: #1f1f1f;
+  color: #e0e0e0;
 }
 
 /* Messages */
@@ -96,6 +126,10 @@ body.dark .bot {
   opacity: 0.6;
   text-align: right;
   margin-top: 4px;
+}
+
+.user .timestamp {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Input */
@@ -159,4 +193,3 @@ body.dark .chat-box::-webkit-scrollbar-thumb {
 body.dark .chat-box::-webkit-scrollbar-track {
   background: #2a2a2a;
 }
-
